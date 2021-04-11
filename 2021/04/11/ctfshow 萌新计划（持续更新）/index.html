@@ -429,21 +429,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-08
+                    2021-04-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-08
+                    2021-04-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    731
+                    827
                 </div>
                 
 
@@ -544,8 +544,14 @@ a<span class="token operator">=</span><span class="token string">'abcdefghijklmn
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>结果为36d，给c传36d，得到flag</p>
-<h2 id="web17"><a href="#web17" class="headerlink" title="web17"></a>web17</h2><p>额，，，，文件包含的题我还没咋看，大佬的wp看不太懂，先pass</p>
-<h2 id="web18"><a href="#web18" class="headerlink" title="web18"></a>web18</h2><p>文件包含，pass，先挖个坑，日后再学</p>
+<h2 id="web17"><a href="#web17" class="headerlink" title="web17"></a>web17</h2><p>考察文件包含，在地址栏输入?c=/etc/passwd 后能访问到文件信息，说明有文件包含漏洞</p>
+<p>（linux下etx/passwd文件详解可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/a1154490629/article/details/52190801%EF%BC%89">https://blog.csdn.net/a1154490629/article/details/52190801）</a></p>
+<p>尝试过data写入一句话没成功，参考网上大佬wp得知可用日志注入</p>
+<p>先抓到返回包知道用的中间件是Nginx，</p>
+<p>默认日志位置/var/log/nginx/access.log</p>
+<p>成功访问</p>
+<p>抓包加上一句话木马<br>蚁剑连接得到flag</p>
+<h2 id="web18-21"><a href="#web18-21" class="headerlink" title="web18-21"></a>web18-21</h2><p>都可以用web17解出来</p>
 
                 
             </div>
@@ -784,56 +790,12 @@ a<span class="token operator">=</span><span class="token string">'abcdefghijklmn
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="../upload-labs/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="../../../../medias/featureimages/6.jpg" class="responsive-img" alt="Upload-Labs">
-                        
-                        <span class="card-title">Upload-Labs</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            sjz
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="../../../../tags/upload-labs/">
-                        <span class="chip bg-color">upload-labs</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="../../07/ctfshow%20vip%E9%A2%98%E7%9B%AE%E9%99%90%E5%85%8D%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/">
+                <a href="">
                     <div class="card-image">
                         
                         
@@ -850,7 +812,57 @@ a<span class="token operator">=</span><span class="token string">'abcdefghijklmn
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            sjz
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../../../tags/ctfshow/">
+                        <span class="chip bg-color">ctfshow</span>
+                    </a>
+                    
+                    <a href="../../../../tags/%E8%90%8C%E6%96%B0/">
+                        <span class="chip bg-color">萌新</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="../../08/upload-labs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../../../../medias/featureimages/6.jpg" class="responsive-img" alt="Upload-Labs">
+                        
+                        <span class="card-title">Upload-Labs</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
                             </span>
                         <span class="publish-author">
                             
@@ -863,8 +875,8 @@ a<span class="token operator">=</span><span class="token string">'abcdefghijklmn
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/ctfshow/">
-                        <span class="chip bg-color">ctfshow</span>
+                    <a href="../../../../tags/upload-labs/">
+                        <span class="chip bg-color">upload-labs</span>
                     </a>
                     
                 </div>
@@ -1067,7 +1079,7 @@ a<span class="token operator">=</span><span class="token string">'abcdefghijklmn
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">900</span>&nbsp;字
+                class="white-color">996</span>&nbsp;字
             
             
             
