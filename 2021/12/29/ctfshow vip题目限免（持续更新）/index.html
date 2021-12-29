@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="kali练习之ARP欺骗与DNS欺骗, 阿丶萨德的博客">
+    <meta name="keywords" content="Ctfshow Vip限免, 阿丶萨德的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>kali练习之ARP欺骗与DNS欺骗 | 阿丶萨德的博客</title>
+    <title>Ctfshow Vip限免 | 阿丶萨德的博客</title>
     <link rel="icon" type="image/png" href="../../../../favicon.png">
 
     <link rel="stylesheet" type="text/css" href="../../../../libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">kali练习之ARP欺骗与DNS欺骗</h1>
+                    <h1 class="description center-align post-title">Ctfshow Vip限免</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../../../../tags/DNS/">
-                                <span class="chip bg-color">DNS</span>
-                            </a>
-                        
-                            <a href="../../../../tags/ARP/">
-                                <span class="chip bg-color">ARP</span>
+                            <a href="../../../../tags/ctfshow/">
+                                <span class="chip bg-color">ctfshow</span>
                             </a>
                         
                     </div>
@@ -429,28 +425,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-25
+                    2021-12-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-26
+                    2021-04-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    879
+                    663
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -473,59 +469,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ARP欺骗"><a href="#ARP欺骗" class="headerlink" title="ARP欺骗"></a>ARP欺骗</h1><p>首先介绍一下什么是arp，arp是地址解析协议，根据ip地址能找到相应的mac地址。例如有A主机，B主机，C主机，网关G。在同一局域网内，如果A想联系B,会在arp缓存表里寻找B主机ip对应的mac地址，如果没有找到相应的映射。A会发送arp请求广播在网络上所有的主机，arp请求包含了A主机的ip和mac地址以及B主机的ip。网络中所有的主机会检测ip是否和自己的ip对应，如果不对应则会丢弃，对应的话B主机就会把A的ip以及mac地址保存在arp表中，并且B主机将包含自己的mac地址的arp返回给A主机，A主机将B的ip，mac保存在自己的arp表中。</p>
-<p>arp欺骗就是假设A与B通过网关通信，C想知道AB之间的通信内容，所以C假扮网关G向A发送假的arp应答包，此时A的arp缓存表中网关G的mac地址就换成了C的mac地址，C在假扮A主机向网关G发送假的arp应答包，网关G的arp缓存表里A的mac地址就变成了C的mac地址，以后A以后和B通信都要经过C主机，C就知道AB之间通信的内容，这是arp双向欺骗。</p>
-<p>那arp单向欺骗就是C只向A发送了包含错误的网关mac地址的arp应答包，G当中A的源mac没有变，当A向外发送数据时找不到网关，就无法与外界通信，也就是上不了网。</p>
-<h1 id="DNS欺骗"><a href="#DNS欺骗" class="headerlink" title="DNS欺骗"></a>DNS欺骗</h1><p>DNS是域名解析服务器，当你请求<a target="_blank" rel="noopener" href="http://www.baidu.com时,dns会把www.baidu.com解析成百度的ip,你就可以通过域名访问百度了/">www.baidu.com时，DNS会把www.baidu.com解析成百度的ip，你就可以通过域名访问百度了</a></p>
-<p>假设A想访问百度，C从中捣乱冒充域名解析服务器，在A访问百度时，将百度的域名解析成自己C自己的ip，此时A访问百度后只能看见C搭建的网站</p>
-<h1 id="综合实践演示"><a href="#综合实践演示" class="headerlink" title="综合实践演示"></a>综合实践演示</h1><p>通过kali可以实现对目标机器的ARP欺骗与DNS欺骗</p>
-<p>kali虚拟机ip：192.168.239.132  mac地址：00:0c:29:b9:58:40</p>
-<p>win10虚拟机ip：192.168.239.139  mac地址：00-0C-29-56-02-33</p>
-<p>win10的arp缓存表</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422171527946.png"></p>
-<p>通过arpspoof进行arp欺骗</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422172840225.png"></p>
-<p>mac地址被替换为kali的mac地址</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422172944664.png"></p>
-<p>此时win10断网</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422172743490.png"></p>
-<p>配置kali开启ip转发功能，该文件内容默认为0，此时修改为1</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422173125015.png"></p>
-<p>win10又能连接网络了</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422173241333.png"></p>
-<p>此时在win10ping 百度的时候，kali开启wireshark能够捕获到相应数据包</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422173457493.png"></p>
-<p>dritnet -i eth0可以进行图片嗅探，但是只能捕获到http的图片且十几张只能捕获中的一两张，https的图片无法捕获</p>
-<p>DNS欺骗之前先修改ettercap的DNS文件</p>
-<pre class="line-numbers language-none"><code class="language-none">vim &#x2F;etc&#x2F;ettercap&#x2F;etter.dns<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422174409158.png"></p>
-<p>自定义自己的网站</p>
-<pre class="line-numbers language-none"><code class="language-none">vim &#x2F;var&#x2F;www&#x2F;html&#x2F;index.html <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422174642055.png"></p>
-<p>开启apache服务</p>
-<pre class="line-numbers language-none"><code class="language-none">service apache2 start <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>利用ettercap进行dns欺骗</p>
-<pre class="line-numbers language-none"><code class="language-none">ettercap -i eth0 -Tq -M arp:remote -P dns_spoof &#x2F;192.168.239.139&#x2F;&#x2F; &#x2F;192.168.239.2&#x2F;&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422214206822.png"></p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422175401617.png"></p>
-<p>图形化工具的使用</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422214741616.png"></p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422214826068.png"></p>
-<p>这个按钮可以探测到局域网内存活的主机</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422215117175.png"></p>
-<p>这个按钮可以查看探测到存活主机的信息</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422215218270.png"></p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422215439958.png"></p>
-<p>将网关添加到add to Target1   目标ip添加到 add to Target2</p>
-<p>之后点击ARP poisoning 开启ARP欺骗</p>
-<p><img src="/2021/04/25/kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/image-20210422220622658.png"></p>
-<p>之后点击pulgins的manage the plugins,再点击dns_spoof</p>
-<p>再点击左上角的start sniffing开始</p>
-<p>小结：emm有时候页面解析不出来很烦，可能需要清除浏览器缓存还是啥···</p>
+                <h1 id="ctfshow-vip题目限免"><a href="#ctfshow-vip题目限免" class="headerlink" title="ctfshow vip题目限免"></a>ctfshow vip题目限免</h1><h2 id="1-源码泄露"><a href="#1-源码泄露" class="headerlink" title="1.源码泄露"></a>1.源码泄露</h2><p>F12查看源码得到flag</p>
+<h2 id="2-前台JS绕过"><a href="#2-前台JS绕过" class="headerlink" title="2.前台JS绕过"></a>2.前台JS绕过</h2><p>无法F12或者右击查看与代码，但是可以在url前加上‘view-source:’查看，除此之外在火狐配置（地址栏里about:config）里可以禁用JS，然后再查看源代码</p>
+<h2 id="3-协议头信息泄露"><a href="#3-协议头信息泄露" class="headerlink" title="3.协议头信息泄露"></a>3.协议头信息泄露</h2><p>提示抓包，打开burpsuite，抓到包后，发送到Repeater，发包得到响应头，得到flag</p>
+<h2 id="4-robots后台泄露"><a href="#4-robots后台泄露" class="headerlink" title="4.robots后台泄露"></a>4.robots后台泄露</h2><p>地址栏后输入robots.txt,发现有flagishere.txt，在地址栏访问后得到flag</p>
+<h2 id="5-phps源码泄露"><a href="#5-phps源码泄露" class="headerlink" title="5.phps源码泄露"></a>5.phps源码泄露</h2><p>访问index.phps下载得到源码</p>
+<h2 id="6-源码压缩包泄露"><a href="#6-源码压缩包泄露" class="headerlink" title="6.源码压缩包泄露"></a>6.源码压缩包泄露</h2><p>访问<a target="_blank" rel="noopener" href="http://www.zip得到flag/">www.zip得到flag</a></p>
+<h2 id="7-版本控制泄露源码"><a href="#7-版本控制泄露源码" class="headerlink" title="7.版本控制泄露源码"></a>7.版本控制泄露源码</h2><p>访问/.git/得到flag</p>
+<h2 id="8-版本控制泄露源码2"><a href="#8-版本控制泄露源码2" class="headerlink" title="8.版本控制泄露源码2"></a>8.版本控制泄露源码2</h2><p>访问/.svn/</p>
+<h2 id="9-vim临时文件泄露"><a href="#9-vim临时文件泄露" class="headerlink" title="9.vim临时文件泄露"></a>9.vim临时文件泄露</h2><p>vim改写文件是如果非正常关闭会生成一个.swp的临时文件</p>
+<p>访问index.php.swp下载文件得到flag</p>
+<h2 id="10-cookie泄露"><a href="#10-cookie泄露" class="headerlink" title="10.cookie泄露"></a>10.cookie泄露</h2><p>抓个包，cookie里有flag</p>
+<h2 id="11-域名txt记录泄露"><a href="#11-域名txt记录泄露" class="headerlink" title="11.域名txt记录泄露"></a>11.域名txt记录泄露</h2><p>找一个在线域名解析的网站解析一下ctfshow.com（<a target="_blank" rel="noopener" href="http://www.jsons.cn/nslookup/%EF%BC%89">http://www.jsons.cn/nslookup/）</a></p>
+<h2 id="12-敏感信息公布"><a href="#12-敏感信息公布" class="headerlink" title="12.敏感信息公布"></a>12.敏感信息公布</h2><p>访问/admin/后，账户名是admin，密码是网站最下面的一串数字</p>
+<h2 id="13-内部技术文档泄露"><a href="#13-内部技术文档泄露" class="headerlink" title="13.内部技术文档泄露"></a>13.内部技术文档泄露</h2><p>在网站底部找到INFORMATION下的document里面有后台的网址以及账号密码登录得到flag</p>
+<h2 id="14-编辑器配置不当"><a href="#14-编辑器配置不当" class="headerlink" title="14.编辑器配置不当"></a>14.编辑器配置不当</h2><p>题目提示editor网址输入后进入一个页面，在进入tmp/html/nothinghere里找到一个fl000g.txt,然后在访问/nothinghere/fl000g.txt得到flag</p>
+<h2 id="15密码逻辑脆弱"><a href="#15密码逻辑脆弱" class="headerlink" title="15密码逻辑脆弱"></a>15密码逻辑脆弱</h2><p>打开网站访问/admin/，进入后台返现要输入密码，点击忘记密码，要输入官方所在地，记得网站首页有一个qq号查询是在西安，输入后，告诉你重置后的密码，用户名为admin登录得到flag。</p>
+<h2 id="16-探针泄露"><a href="#16-探针泄露" class="headerlink" title="16.探针泄露"></a>16.探针泄露</h2><p>不得不说，这个3D周期表有亿点炫酷，输入tz.php进入探针页面，再进入phpinfo，找到标题Environment的表格，里面有flag</p>
+<h2 id="17-CDN穿透"><a href="#17-CDN穿透" class="headerlink" title="17.CDN穿透"></a>17.CDN穿透</h2><p>直接ping <a target="_blank" rel="noopener" href="http://www.ctfshow.com/">www.ctfshow.com</a> 找到ip，好像ctfshow的服务器是禁止ping的</p>
+<h2 id="18-js敏感信息泄露"><a href="#18-js敏感信息泄露" class="headerlink" title="18.js敏感信息泄露"></a>18.js敏感信息泄露</h2><p>打开网页的js文件，到最后有一串unicode编码，解码得到提示网址得到flag</p>
+<h2 id="19-前端密钥泄露"><a href="#19-前端密钥泄露" class="headerlink" title="19.前端密钥泄露"></a>19.前端密钥泄露</h2><p>F12看到账户密码填进去发现不是很对，他写了一个js对输入的密码进行加密，得到的密码并不是你输入的，所以进行抓包把密码改一下就行。</p>
+<h2 id="20-数据库恶意下载"><a href="#20-数据库恶意下载" class="headerlink" title="20.数据库恶意下载"></a>20.数据库恶意下载</h2><p>地址栏输入db/db.mdb得到一个下载文件，打开得到flag</p>
 
                 
             </div>
@@ -590,12 +554,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../../../../tags/DNS/">
-                                    <span class="chip bg-color">DNS</span>
-                                </a>
-                            
-                                <a href="../../../../tags/ARP/">
-                                    <span class="chip bg-color">ARP</span>
+                                <a href="../../../../tags/ctfshow/">
+                                    <span class="chip bg-color">ctfshow</span>
                                 </a>
                             
                         </div>
@@ -768,13 +728,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="../ctfshow%20vip%E9%A2%98%E7%9B%AE%E9%99%90%E5%85%8D%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/">
+                <a href="../kali%E7%BB%83%E4%B9%A0%E4%B9%8BARP%E6%AC%BA%E9%AA%97%E4%B8%8EDNS%E6%AC%BA%E9%AA%97/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/4.jpg" class="responsive-img" alt="Ctfshow Vip限免">
+                        <img src="../../../../medias/featureimages/15.jpg" class="responsive-img" alt="kali练习之ARP欺骗与DNS欺骗">
                         
-                        <span class="card-title">Ctfshow Vip限免</span>
+                        <span class="card-title">kali练习之ARP欺骗与DNS欺骗</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -785,8 +745,57 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-25
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-29
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            sjz
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../../../tags/DNS/">
+                        <span class="chip bg-color">DNS</span>
+                    </a>
+                    
+                    <a href="../../../../tags/ARP/">
+                        <span class="chip bg-color">ARP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="../ctfshow%20%E8%90%8C%E6%96%B0%E8%AE%A1%E5%88%92%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../../../../medias/featureimages/22.jpg" class="responsive-img" alt="Ctfshow">
+                        
+                        <span class="card-title">Ctfshow</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -802,49 +811,8 @@
                         <span class="chip bg-color">ctfshow</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="../../12/upload-labs/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="../../../../medias/featureimages/6.jpg" class="responsive-img" alt="Upload-Labs">
-                        
-                        <span class="card-title">Upload-Labs</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            sjz
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="../../../../tags/upload-labs/">
-                        <span class="chip bg-color">upload-labs</span>
+                    <a href="../../../../tags/%E8%90%8C%E6%96%B0/">
+                        <span class="chip bg-color">萌新</span>
                     </a>
                     
                 </div>

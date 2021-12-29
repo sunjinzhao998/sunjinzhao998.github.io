@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ctfshow Vip限免, 阿丶萨德的博客">
+    <meta name="keywords" content="Upload-Labs, 阿丶萨德的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ctfshow Vip限免 | 阿丶萨德的博客</title>
+    <title>Upload-Labs | 阿丶萨德的博客</title>
     <link rel="icon" type="image/png" href="../../../../favicon.png">
 
     <link rel="stylesheet" type="text/css" href="../../../../libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Ctfshow Vip限免</h1>
+                    <h1 class="description center-align post-title">Upload-Labs</h1>
                 </div>
             </div>
         </div>
@@ -409,8 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../../../../tags/ctfshow/">
-                                <span class="chip bg-color">ctfshow</span>
+                            <a href="../../../../tags/upload-labs/">
+                                <span class="chip bg-color">upload-labs</span>
                             </a>
                         
                     </div>
@@ -425,28 +425,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-25
+                    2021-12-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-25
+                    2021-04-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    663
+                    159
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -469,27 +469,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ctfshow-vip题目限免"><a href="#ctfshow-vip题目限免" class="headerlink" title="ctfshow vip题目限免"></a>ctfshow vip题目限免</h1><h2 id="1-源码泄露"><a href="#1-源码泄露" class="headerlink" title="1.源码泄露"></a>1.源码泄露</h2><p>F12查看源码得到flag</p>
-<h2 id="2-前台JS绕过"><a href="#2-前台JS绕过" class="headerlink" title="2.前台JS绕过"></a>2.前台JS绕过</h2><p>无法F12或者右击查看与代码，但是可以在url前加上‘view-source:’查看，除此之外在火狐配置（地址栏里about:config）里可以禁用JS，然后再查看源代码</p>
-<h2 id="3-协议头信息泄露"><a href="#3-协议头信息泄露" class="headerlink" title="3.协议头信息泄露"></a>3.协议头信息泄露</h2><p>提示抓包，打开burpsuite，抓到包后，发送到Repeater，发包得到响应头，得到flag</p>
-<h2 id="4-robots后台泄露"><a href="#4-robots后台泄露" class="headerlink" title="4.robots后台泄露"></a>4.robots后台泄露</h2><p>地址栏后输入robots.txt,发现有flagishere.txt，在地址栏访问后得到flag</p>
-<h2 id="5-phps源码泄露"><a href="#5-phps源码泄露" class="headerlink" title="5.phps源码泄露"></a>5.phps源码泄露</h2><p>访问index.phps下载得到源码</p>
-<h2 id="6-源码压缩包泄露"><a href="#6-源码压缩包泄露" class="headerlink" title="6.源码压缩包泄露"></a>6.源码压缩包泄露</h2><p>访问<a target="_blank" rel="noopener" href="http://www.zip得到flag/">www.zip得到flag</a></p>
-<h2 id="7-版本控制泄露源码"><a href="#7-版本控制泄露源码" class="headerlink" title="7.版本控制泄露源码"></a>7.版本控制泄露源码</h2><p>访问/.git/得到flag</p>
-<h2 id="8-版本控制泄露源码2"><a href="#8-版本控制泄露源码2" class="headerlink" title="8.版本控制泄露源码2"></a>8.版本控制泄露源码2</h2><p>访问/.svn/</p>
-<h2 id="9-vim临时文件泄露"><a href="#9-vim临时文件泄露" class="headerlink" title="9.vim临时文件泄露"></a>9.vim临时文件泄露</h2><p>vim改写文件是如果非正常关闭会生成一个.swp的临时文件</p>
-<p>访问index.php.swp下载文件得到flag</p>
-<h2 id="10-cookie泄露"><a href="#10-cookie泄露" class="headerlink" title="10.cookie泄露"></a>10.cookie泄露</h2><p>抓个包，cookie里有flag</p>
-<h2 id="11-域名txt记录泄露"><a href="#11-域名txt记录泄露" class="headerlink" title="11.域名txt记录泄露"></a>11.域名txt记录泄露</h2><p>找一个在线域名解析的网站解析一下ctfshow.com（<a target="_blank" rel="noopener" href="http://www.jsons.cn/nslookup/%EF%BC%89">http://www.jsons.cn/nslookup/）</a></p>
-<h2 id="12-敏感信息公布"><a href="#12-敏感信息公布" class="headerlink" title="12.敏感信息公布"></a>12.敏感信息公布</h2><p>访问/admin/后，账户名是admin，密码是网站最下面的一串数字</p>
-<h2 id="13-内部技术文档泄露"><a href="#13-内部技术文档泄露" class="headerlink" title="13.内部技术文档泄露"></a>13.内部技术文档泄露</h2><p>在网站底部找到INFORMATION下的document里面有后台的网址以及账号密码登录得到flag</p>
-<h2 id="14-编辑器配置不当"><a href="#14-编辑器配置不当" class="headerlink" title="14.编辑器配置不当"></a>14.编辑器配置不当</h2><p>题目提示editor网址输入后进入一个页面，在进入tmp/html/nothinghere里找到一个fl000g.txt,然后在访问/nothinghere/fl000g.txt得到flag</p>
-<h2 id="15密码逻辑脆弱"><a href="#15密码逻辑脆弱" class="headerlink" title="15密码逻辑脆弱"></a>15密码逻辑脆弱</h2><p>打开网站访问/admin/，进入后台返现要输入密码，点击忘记密码，要输入官方所在地，记得网站首页有一个qq号查询是在西安，输入后，告诉你重置后的密码，用户名为admin登录得到flag。</p>
-<h2 id="16-探针泄露"><a href="#16-探针泄露" class="headerlink" title="16.探针泄露"></a>16.探针泄露</h2><p>不得不说，这个3D周期表有亿点炫酷，输入tz.php进入探针页面，再进入phpinfo，找到标题Environment的表格，里面有flag</p>
-<h2 id="17-CDN穿透"><a href="#17-CDN穿透" class="headerlink" title="17.CDN穿透"></a>17.CDN穿透</h2><p>直接ping <a target="_blank" rel="noopener" href="http://www.ctfshow.com/">www.ctfshow.com</a> 找到ip，好像ctfshow的服务器是禁止ping的</p>
-<h2 id="18-js敏感信息泄露"><a href="#18-js敏感信息泄露" class="headerlink" title="18.js敏感信息泄露"></a>18.js敏感信息泄露</h2><p>打开网页的js文件，到最后有一串unicode编码，解码得到提示网址得到flag</p>
-<h2 id="19-前端密钥泄露"><a href="#19-前端密钥泄露" class="headerlink" title="19.前端密钥泄露"></a>19.前端密钥泄露</h2><p>F12看到账户密码填进去发现不是很对，他写了一个js对输入的密码进行加密，得到的密码并不是你输入的，所以进行抓包把密码改一下就行。</p>
-<h2 id="20-数据库恶意下载"><a href="#20-数据库恶意下载" class="headerlink" title="20.数据库恶意下载"></a>20.数据库恶意下载</h2><p>地址栏输入db/db.mdb得到一个下载文件，打开得到flag</p>
+                <h1 id="upload-labs"><a href="#upload-labs" class="headerlink" title="upload-labs"></a>upload-labs</h1><p>关于文件上传这是一个很好的靶机可以练习，了解更多的绕过姿势，如果你想自己搭一个可以去github上下载，和phpstudy配合可以搭出来一个，如果你直接想用现成的可以去FOFA去搜一下，语句为title=”upload-labs”</p>
+<h2 id="pass-01"><a href="#pass-01" class="headerlink" title="pass-01"></a>pass-01</h2><p>查看源码发现只允许图片类文件上传</p>
+<p><img src="/2021/12/29/upload-labs/image-20210412170520621.png"></p>
+<p>将一句话木马后缀改为jpg，使用burp拦截将包后缀改为php，成功上传</p>
+<p><img src="/2021/12/29/upload-labs/pass1.1.png"></p>
+<p><img src="/2021/12/29/upload-labs/image-20210412171130290.png"></p>
+<h2 id="pass-02"><a href="#pass-02" class="headerlink" title="pass-02"></a>pass-02</h2><p>查看源码发现对文件的content-type类型检测</p>
+<p><img src="/2021/12/29/upload-labs/image-20210412192841471.png"></p>
+<p>上传llehs.php更改type类型</p>
+<p><img src="/2021/12/29/upload-labs/image-20210412193543227.png"></p>
+<p>上传成功后，访问成功</p>
+<p><img src="/2021/12/29/upload-labs/image-20210412193415433.png"></p>
 
                 
             </div>
@@ -554,8 +545,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../../../../tags/ctfshow/">
-                                    <span class="chip bg-color">ctfshow</span>
+                                <a href="../../../../tags/upload-labs/">
+                                    <span class="chip bg-color">upload-labs</span>
                                 </a>
                             
                         </div>
@@ -733,9 +724,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/4.jpg" class="responsive-img" alt="Ctfshow Vip限免">
+                        <img src="../../../../medias/featureimages/6.jpg" class="responsive-img" alt="Upload-Labs">
                         
-                        <span class="card-title">Ctfshow Vip限免</span>
+                        <span class="card-title">Upload-Labs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -746,7 +737,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-29
                             </span>
                         <span class="publish-author">
                             
@@ -760,8 +751,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/ctfshow/">
-                        <span class="chip bg-color">ctfshow</span>
+                    <a href="../../../../tags/upload-labs/">
+                        <span class="chip bg-color">upload-labs</span>
                     </a>
                     
                 </div>
@@ -792,7 +783,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-29
                             </span>
                         <span class="publish-author">
                             
